@@ -210,6 +210,7 @@ public OnMapStart()
     InfectLoad();
     VEffectsLoad();
     SEffectsLoad();
+    SEffectsZombieLoad();
 }
 
 /**

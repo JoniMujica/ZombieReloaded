@@ -76,6 +76,9 @@ bool:AmbientSoundsValidateConfig()
     // Get ambient sound file.
     decl String:sound[SOUND_MAX_PATH];
     SEffects_GetAmbientSoundsFile(sound);
+
+    PrecacheSound(sound, false);
+
     Format(sound, sizeof(sound), "sound/%s", sound);
 
     // If file doesn't exist, then log error and stop.

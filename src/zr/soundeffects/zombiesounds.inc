@@ -455,3 +455,35 @@ public Action:ZombieSoundsCmdTimer(Handle:timer, any:client)
 {
     g_SEffectsCommandCount[client] = 0;
 }
+
+/**
+ * Precache zombie sounds
+ */
+ZombieSoundsLoad()
+{
+    decl String:soundpath[SOUND_MAX_PATH];
+    //Moan
+    for (int i = SOUND_MOAN_MIN; i <= SEffects_GetMax(Moan); i++) {
+        SEffects_GetPath(soundpath, Moan);
+        // Format random index into sound path.
+        Format(soundpath, SOUND_MAX_PATH, soundpath, i);
+        PrecacheSound(soundpath, false);
+    }
+    //Groan
+    for (int i = SOUND_GROAN_MIN; i <= SEffects_GetMax(Groan); i++) {
+        SEffects_GetPath(soundpath, Groan);
+        // Format random index into sound path.
+        Format(soundpath, SOUND_MAX_PATH, soundpath, i);
+        PrecacheSound(soundpath, false);
+    }
+    //Death
+    for (int i = SOUND_DEATH_MIN; i <= SEffects_GetMax(Death); i++) {
+        SEffects_GetPath(soundpath, Death);
+        // Format random index into sound path.
+        Format(soundpath, SOUND_MAX_PATH, soundpath, i);
+        PrecacheSound(soundpath, false);
+    }
+    //Scream
+    GetConVarString(g_hCvarsList[CVAR_INFECT_SOUND], soundpath, sizeof(soundpath));
+    PrecacheSound(soundpath, false);
+}

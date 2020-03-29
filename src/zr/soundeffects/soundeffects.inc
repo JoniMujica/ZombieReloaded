@@ -49,6 +49,15 @@ SEffectsLoad()
 }
 
 /**
+ * Load zombie effects.
+ */
+SEffectsZombieLoad()
+{
+    ZombieSoundsLoad();
+}
+
+
+/**
  * Map is starting.
  */
 SEffectsOnMapStart()
@@ -169,9 +178,13 @@ SEffectsEmitAmbientSound(const String:sound[], Float:ambientvolume = 1.0, client
 {
     // Precache sound before playing.
     if (g_Game == Game_CSGO)
-        PrecacheSoundAny(sound);
+    {
+        //PrecacheSoundAny(sound);
+    }
     else
+    {
         PrecacheSound(sound);
+    }
 
     if (ZRIsClientValid(client))
     {
@@ -244,9 +257,13 @@ SEffectsEmitSoundFromClient(client, const String:sound[], level = SNDLEVEL_NORMA
 {
     // Precache sound before playing.
     if (g_Game == Game_CSGO)
-        PrecacheSoundAny(sound);
+    {
+        //PrecacheSoundAny(sound);
+    }
     else
+    {
         PrecacheSound(sound);
+    }
 
     // Emit sound from client.
     if (g_Game == Game_CSGO)

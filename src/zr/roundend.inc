@@ -327,14 +327,33 @@ RoundEndTerminateRound(Float:delay, RoundEndOutcome:outcome = Restart)
         // Zombies won.
         case ZombiesWin:
         {
+            //ForceRoundWin(CS_TEAM_T);
             CS_TerminateRound(delay, CSRoundEnd_TerroristWin, false);
         }
         // Humans won.
         case HumansWin:
         {
+			//ForceRoundWin(CS_TEAM_CT);
             CS_TerminateRound(delay, CSRoundEnd_CTWin, false);
         }
     }
+}
+
+ForceRoundWin(team)
+{
+	new iEnt = -1;
+	iEnt = FindEntityByClassname(iEnt, "game_round_win");
+	
+	if (iEnt < 1)
+	{
+		iEnt = CreateEntityByName("game_round_win");
+		if (IsValidEntity(iEnt))
+			DispatchSpawn(iEnt);
+	}
+	
+	SetVariantInt(team);
+	AcceptEntityInput(iEnt, "SetTeam");
+	AcceptEntityInput(iEnt, "RoundWin");
 }
 
 /**

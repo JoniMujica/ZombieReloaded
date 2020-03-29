@@ -50,7 +50,7 @@ stock static EmitSoundCheckEngineVersion()
 
 	new EngineVersion:engVersion = GetEngineVersion();
 	
-	if (engVersion == Engine_CSGO || engVersion == Engine_DOTA)
+	if (engVersion == Engine_DOTA)
 	{
 		g_bNeedsFakePrecache = true;
 	}

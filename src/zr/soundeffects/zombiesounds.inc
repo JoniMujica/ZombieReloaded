@@ -26,11 +26,12 @@
  */
 
 /**
- * @section Defines for min moaning, groan and death sound files index.
+ * @section Defines for min moaning, groan, death and scream sound files index.
  */
 #define SOUND_MOAN_MIN 1
 #define SOUND_GROAN_MIN 1
 #define SOUND_DEATH_MIN 1
+#define SOUND_SCREAM_MIN 1
 /**
  * @endsection
  */
@@ -43,6 +44,7 @@ enum ZombieSounds
     Moan, /** Zombie's moan periodically */
     Groan, /** When zombie is hurt */
     Death, /** When a zombie is killed */
+    Scream, /** When a zombie infects a human */
 }
 
 #include "zr/soundeffects/cvars"
@@ -258,6 +260,16 @@ bool:ZombieSoundsGetRandomSound(String:sound[], ZombieSounds:soundtype)
             // Read path
             SEffects_GetPath(soundpath, Death);
         }
+        // Find scream sound.
+        case Scream:
+        {
+            // Copy min and max
+            soundmin = SOUND_SCREAM_MIN;
+            soundmax = SEffects_GetMax(Scream);
+
+            // Read path
+            SEffects_GetPath(soundpath, Scream);
+        }
         // Invalid case given.
         default:
         {
@@ -340,10 +352,16 @@ ZombieSoundsScream(client)
  */
 public Action:ZombieSoundsScreamTimer(Handle:timer, any client)
 {
-    decl String:sound[PLATFORM_MAX_PATH];
+    // Get random scream sound.
+    decl String:sound[SOUND_MAX_PATH];
+
     GetConVarString(g_hCvarsList[CVAR_INFECT_SOUND], sound, sizeof(sound));
-    
-    // If cvar contains path, then continue.
+
+    // If cvar not contains path, get random scream sound.
+    if (!sound[0]) {
+        ZombieSoundsGetRandomSound(sound, Scream);
+    }
+
     if (sound[0])
     {
         // Emit infect sound from infected client.
@@ -484,6 +502,10 @@ ZombieSoundsLoad()
         PrecacheSound(soundpath, false);
     }
     //Scream
-    GetConVarString(g_hCvarsList[CVAR_INFECT_SOUND], soundpath, sizeof(soundpath));
-    PrecacheSound(soundpath, false);
+    for (int i = SOUND_SCREAM_MIN; i <= SEffects_GetMax(Scream); i++) {
+        SEffects_GetPath(soundpath, Scream);
+        // Format random index into sound path.
+        Format(soundpath, SOUND_MAX_PATH, soundpath, i);
+        PrecacheSound(soundpath, false);
+    }
 }

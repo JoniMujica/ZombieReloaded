@@ -38,7 +38,7 @@
 
 #include <external/emitsoundany>
 
-#define VERSION "3.1"
+#define VERSION "3.2"
 
 // Comment this line to exclude version info command. Enable this if you have
 // the repository and HG installed (Mercurial or TortoiseHG).

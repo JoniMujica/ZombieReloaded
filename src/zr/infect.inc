@@ -677,21 +677,44 @@ public Action:InfectCountdown(Handle:timer)
         InfectStopCountdown();
         return Plugin_Stop;
     }
-
+    
     // Read the info from the datapack.
     ResetPack(hInfectCountdownData);
     new Float:length = ReadPackFloat(hInfectCountdownData);
     new Float:counter = ReadPackFloat(hInfectCountdownData);
-
+    
     // Check if the countdown has finished.
     if (counter >= length)
     {
         InfectStopCountdown();
         return Plugin_Stop;
     }
-
+    
+    new counter_int = RoundToNearest(length - counter);
+    char sounddir[128];
+    Format(sounddir, 128, "sound/zp/countdown/%i.mp3", counter_int);
+	
+    if(FileExists(sounddir))
+    {
+		ReplaceString(sounddir, 128, "sound/", "");
+		
+		if(g_Game == Game_CSGO) EmitSoundToAllAny(sounddir);
+		else EmitSoundToAll(sounddir);
+    }
+	
+    // decl String:message[256];
+    // Format(message, sizeof(message), "%T", "Infect countdown", counter_int);
+    //new contador = counter_int;
+    new Handle:HudCountdown = CreateHudSynchronizer();
+    SetHudTextParams(0.3,0.25,1.0, 0, 246, 120, 1);
     // Print the countdown text to the clients.
-    TranslationPrintCenterTextAll(false, "Infect countdown", RoundToNearest(length - counter));
+    for(new i = 1;i<= MaxClients; i++){
+        if(IsClientInGame(i)){
+            ShowSyncHudText(i,HudCountdown,"Primera infeccion en %i segundos", counter_int);
+            // contador--;
+        }
+    }
+    // TranslationPrintCenterTextAll(false, "Infect countdown", counter_int);
 
     counter++;
 
@@ -701,6 +724,25 @@ public Action:InfectCountdown(Handle:timer)
     WritePackFloat(hInfectCountdownData, counter);
 
     return Plugin_Continue;
+}
+
+CountDown()
+{
+	int count = 1;
+	char sounddir[128];
+	Format(sounddir, 128, "sound/zp/countdown/%i.mp3", count);
+
+	while(FileExists(sounddir))
+	{
+		AddFileToDownloadsTable(sounddir);
+		ReplaceString(sounddir, 128, "sound/", "");
+
+		if(g_Game != Game_CSGO) PrecacheSound(sounddir);
+		else PrecacheSoundAny(sounddir);
+
+		count++;
+		Format(sounddir, 128, "sound/zp/countdown/%i.mp3", count);
+    }
 }
 
 /**

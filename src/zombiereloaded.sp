@@ -214,6 +214,8 @@ public OnMapStart()
     SEffectsLoad();
     SEffectsZombieLoad();
     MsSoundEnd();
+
+    CountDown();
 }
 
 /**

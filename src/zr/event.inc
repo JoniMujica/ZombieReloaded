@@ -157,6 +157,11 @@ public Action:EventRoundEnd(Handle:event, const String:name[], bool:dontBroadcas
     ZSpawnOnRoundEnd();
     VolOnRoundEnd();
     ImmunityOnRoundEnd();
+    if(!dontBroadcast) 
+    {
+        // Disable broadcasting
+        dontBroadcast = true;
+    }
 }
 
 /**

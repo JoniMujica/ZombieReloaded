@@ -216,6 +216,13 @@ public Action:EventPlayerSpawn(Handle:event, const String:name[], bool:dontBroad
     ZHPOnClientSpawn(index);
     VolOnPlayerSpawn(index);
     ImmunityClientSpawn(index);
+    new hold = 100;
+    new length = 300;
+    new red = 0;
+    new green = 0;
+    new blue = 255;
+    new alpha = 100;
+    Fade(index, hold, length, FFADE_IN|FFADE_PURGE, red, green, blue, alpha);
 
     // Fire post player_spawn event.
     CreateTimer(0.1, EventPlayerSpawnPost, index);

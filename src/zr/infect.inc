@@ -48,7 +48,10 @@
  /**
  * @section Other defines.
  */
- #define MAX_EVENT_LENGTH 32
+#define MAX_EVENT_LENGTH 32
+#define FFADE_IN 0x0001
+#define FFADE_OUT 0x0002
+#define FFADE_PURGE 0x0010
 /**
  * @endsection
  */
@@ -828,6 +831,15 @@ InfectHumanToZombie(client, attacker = -1, bool:motherinfect = false, bool:respa
     // Print message to client.
     TranslationPrintToChat(client, "Infect infected");
 
+    // fade effect
+    new hold = 100;
+    new length = 300;
+    new red = 255;
+    new green = 0;
+    new blue = 0;
+    new alpha = 100;
+    Fade(client, hold, length, FFADE_IN|FFADE_PURGE, red, green, blue, alpha);
+
     // Forward event to modules.
     ClassOnClientInfected(client, motherinfect);
     RoundEndOnClientInfected();
@@ -897,6 +909,16 @@ InfectZombieToHuman(client, bool:respawn = false, bool:protect = false)
         SpawnProtectStart(client);
     }
 
+    // fade effect
+
+    new hold = 100;
+    new length = 300;
+    new red = 0;
+    new green = 0;
+    new blue = 255;
+    new alpha = 100;
+    Fade(client, hold, length, FFADE_IN|FFADE_PURGE, red, green, blue, alpha);
+
     InfectUnglitchKevlar(client);
 
     // Forward event to modules.
@@ -928,6 +950,25 @@ InfectUpdateScore(attacker, victim)
 
     // Forward event to modules.
     ZHPOnHealthInfectGain(attacker);
+}
+
+/**
+* Creates Fade Effect On Spawn 
+*/
+stock Fade(client, hold, length, type, r, g, b, a)
+{
+	new Handle:fade = StartMessageOne("Fade", client);
+	if (fade !=INVALID_HANDLE)
+	{
+		BfWriteShort(fade, length);	// FIXED 16 bit, with SCREENFADE_FRACBITS fractional, milliseconds duration
+		BfWriteShort(fade, hold);	// FIXED 16 bit, with SCREENFADE_FRACBITS fractional, milliseconds duration until reset (fade & hold)
+		BfWriteShort(fade, type); // fade type (in / out) FFADE_PURGE|FFADE_IN
+		BfWriteByte(fade, r);	// fade red
+		BfWriteByte(fade, g);	// fade green
+		BfWriteByte(fade, b);	// fade blue
+		BfWriteByte(fade, a);// fade alpha
+		EndMessage();
+	}
 }
 
 /**

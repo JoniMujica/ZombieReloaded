@@ -718,6 +718,10 @@
 
 	// Menu (ZMarket)
 
+	"Weapons menu zmarket main view loadout"
+	{
+		"en"		"View Saved Setup"
+	}
 	"Weapons menu zmarket main title"
 	{
 		"en"		"ZMarket\nSelect an Option:"

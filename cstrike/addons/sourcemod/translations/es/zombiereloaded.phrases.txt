@@ -673,6 +673,11 @@
 	}
 
 	// Menu (ZMarket)
+	
+	"Weapons menu zmarket main view loadout"
+	{
+		"es"		"Ver configuracion actual"
+	}
 
 	"Weapons menu zmarket main title"
 	{

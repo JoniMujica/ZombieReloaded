@@ -96,6 +96,8 @@ public Action:EventRoundStart(Handle:event, const String:name[], bool:dontBroadc
     ZSpawnOnRoundStart();
     VolOnRoundStart();
     ZTeleOnRoundStart();
+    human_wins = false;
+    zombie_wins = false;
 
     // Fire post round_start event.
     //CreateTimer(0.0, EventRoundStartPost);

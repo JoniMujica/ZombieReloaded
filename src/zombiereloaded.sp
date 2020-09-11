@@ -39,7 +39,8 @@
 #include <external/emitsoundany>
 
 #define VERSION "3.2"
-
+new bool:human_wins = false;
+new bool:zombie_wins = false;
 // Comment this line to exclude version info command. Enable this if you have
 // the repository and HG installed (Mercurial or TortoiseHG).
 #define ADD_VERSION_INFO
@@ -162,6 +163,7 @@ public OnPluginStart()
     CommandsInit();
     WeaponsInit();
     EventInit();
+    PlSoundEnd();
 }
 
 /**
@@ -211,6 +213,7 @@ public OnMapStart()
     VEffectsLoad();
     SEffectsLoad();
     SEffectsZombieLoad();
+    MsSoundEnd();
 }
 
 /**

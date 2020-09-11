@@ -130,6 +130,7 @@ public Action:EventRoundFreezeEnd(Handle:event, const String:name[], bool:dontBr
     RoundEndOnRoundFreezeEnd();
     InfectOnRoundFreezeEnd();
     ZSpawnOnRoundFreezeEnd();
+    FreezeEndSound();
 }
 
 /**

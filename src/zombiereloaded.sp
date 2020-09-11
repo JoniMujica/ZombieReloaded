@@ -41,6 +41,8 @@
 #define VERSION "3.2"
 new bool:human_wins = false;
 new bool:zombie_wins = false;
+new bool:barricada = true;
+new String:g_MapName[128];
 // Comment this line to exclude version info command. Enable this if you have
 // the repository and HG installed (Mercurial or TortoiseHG).
 #define ADD_VERSION_INFO
@@ -82,6 +84,7 @@ new bool:zombie_wins = false;
 #include "zr/hitgroups"
 #include "zr/roundstart"
 #include "zr/roundend"
+#include "zr/soundstart"
 #include "zr/infect"
 #include "zr/immunityhandler"
 #include "zr/damage"
@@ -164,6 +167,7 @@ public OnPluginStart()
     WeaponsInit();
     EventInit();
     PlSoundEnd();
+    OnPuginStartSound();
 }
 
 /**
@@ -214,8 +218,19 @@ public OnMapStart()
     SEffectsLoad();
     SEffectsZombieLoad();
     MsSoundEnd();
+    OnMapStartSound();
 
     CountDown();
+
+    GetCurrentMap(g_MapName, sizeof(g_MapName));
+	if (StrContains(g_MapName, "zm_") == 0 || StrContains(g_MapName, "ZM_") == 0)
+	{
+		barricada = true;
+	}
+	else if (StrContains(g_MapName, "ze_") == 0 || StrContains(g_MapName, "ZE_") == 0)
+	{
+		barricada = false;
+	}
 }
 
 /**

@@ -579,7 +579,9 @@ PlaySoundEnd()
 	{
 		if (IsClientInGame(i) && !IsFakeClient(i))
 		{
-            if(zombie_wins){
+            StopSoundPerm(i, "radio/ctwin.wav");
+            StopSoundPerm(i, "radio/terwin.wav");
+            if(zombie_wins){ 
                 EmitSoundToAll(SoundNameZM);
             }
             if(human_wins){
@@ -588,3 +590,15 @@ PlaySoundEnd()
         }
 	}
 }
+
+stock StopSoundPerm(client, String:sound[])
+{
+    StopSound(client, SNDCHAN_AUTO, sound);
+    StopSound(client, SNDCHAN_WEAPON, sound);
+    StopSound(client, SNDCHAN_VOICE, sound);
+    StopSound(client, SNDCHAN_ITEM, sound);
+    StopSound(client, SNDCHAN_BODY, sound);
+    StopSound(client, SNDCHAN_STREAM, sound);
+    StopSound(client, SNDCHAN_VOICE_BASE, sound);
+    StopSound(client, SNDCHAN_USER_BASE, sound);
+} 

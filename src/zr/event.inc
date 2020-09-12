@@ -47,7 +47,7 @@ EventHook(bool:unhook = false)
         // Unhook all events.
         UnhookEvent("round_start", EventRoundStart);
         UnhookEvent("round_freeze_end", EventRoundFreezeEnd);
-        UnhookEvent("round_end", EventRoundEnd);
+        UnhookEvent("round_end", EventRoundEnd, EventHookMode_Pre);
         UnhookEvent("player_team", EventPlayerTeam, EventHookMode_Pre);
         UnhookEvent("player_spawn", EventPlayerSpawn);
         UnhookEvent("player_hurt", EventPlayerHurt);
@@ -165,11 +165,8 @@ public Action:EventRoundEnd(Handle:event, const String:name[], bool:dontBroadcas
 	
 	rondanemesis = false;
     rondasurvivor = false;
-    if(!dontBroadcast) 
-    {
-        // Disable broadcasting
-        dontBroadcast = true;
-    }
+    dontBroadcast = true;
+    return Plugin_Changed;
 }
 
 /**

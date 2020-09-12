@@ -1,5 +1,8 @@
 // Zombie Plague natives by Franc1sco franug
-
+#if defined _zp_included_
+	#endinput
+#endif
+#define _zp_included_
 
 // Teams index for Zombie Plague plugin
 #define ZP_HUMANS 1
@@ -126,3 +129,19 @@ native ZP_LoadTranslations(const String:langfile[]);
  * @noreturn			       
  */
 native ZP_AddGoldenWeapon(client, weapon);
+
+public SharedPlugin __pl_zombieplague =
+{
+	name = "franug_zombieplague",
+	file = "franug_zombieplague.smx",
+	#if defined REQUIRE_PLUGIN
+	required = 1,
+	#else
+	required = 0,
+	#endif
+};
+
+public void __pl_zombieplague_SetNTVOptional()
+{
+	MarkNativeAsOptional("ZP_SetSpecial");
+}

@@ -379,12 +379,16 @@ Event_RoundStartZM()
 			if(bIsGoldenGun[i])
 			{
 				bIsGoldenGun[i]=false;
-				ZP_SetSpecial(i, false);
+				
 			}
 			
 		}
 	}
 	
+	for(new client=1; client <= MaxClients; client++)
+	{
+		ZP_SetSpecial(client, false);
+	}
 	
 	rondaplague = false;
 	rondasurvivor = false;

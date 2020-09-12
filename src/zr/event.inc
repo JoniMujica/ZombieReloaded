@@ -96,6 +96,10 @@ public Action:EventRoundStart(Handle:event, const String:name[], bool:dontBroadc
     ZSpawnOnRoundStart();
     VolOnRoundStart();
     ZTeleOnRoundStart();
+	Event_RoundStartZM();
+
+    rondanemesis = false;
+    rondasurvivor = false;
     human_wins = false;
     zombie_wins = false;
 
@@ -158,6 +162,9 @@ public Action:EventRoundEnd(Handle:event, const String:name[], bool:dontBroadcas
     ZSpawnOnRoundEnd();
     VolOnRoundEnd();
     ImmunityOnRoundEnd();
+	
+	rondanemesis = false;
+    rondasurvivor = false;
     if(!dontBroadcast) 
     {
         // Disable broadcasting
@@ -224,6 +231,7 @@ public Action:EventPlayerSpawn(Handle:event, const String:name[], bool:dontBroad
     ZHPOnClientSpawn(index);
     VolOnPlayerSpawn(index);
     ImmunityClientSpawn(index);
+	PlayerSpawnZM(index);
     new hold = 100;
     new length = 300;
     new red = 0;
@@ -351,6 +359,7 @@ public Action:EventPlayerJump(Handle:event, const String:name[], bool:dontBroadc
 
     // Fire post player_jump event.
     CreateTimer(0.0, EventPlayerJumpPost, index);
+	PlayerJumpZM(index);
 }
 
 /**

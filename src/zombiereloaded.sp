@@ -34,6 +34,16 @@
 #include <zombiereloaded>
 #undef INCLUDED_BY_ZOMBIERELOADED
 
+new bool:g_zombieplague = false;
+
+new bool:rondasurvivor = false;
+new bool:rondanemesis = false;
+new bool:rondaplague = false;
+new Nemesis = 0;
+
+new bool:bIsGoldenGun[2048] = false;
+new bool:Es_Nemesis[MAXPLAYERS+1] = {false, ...};
+
 #include <sdkhooks>
 
 #include <external/emitsoundany>
@@ -111,6 +121,7 @@ new String:g_MapName[128];
 #include "zr/debugtools"
 
 #include "zr/api/api"
+#include "rondas/rondas.sp"
 
 new bool:g_bLate = false;
 
@@ -168,6 +179,7 @@ public OnPluginStart()
     EventInit();
     PlSoundEnd();
     OnPuginStartSound();
+	OnPluginStartZM();
 }
 
 /**
@@ -178,6 +190,9 @@ public OnAllPluginsLoaded()
     // Forward event to modules.
     WeaponsOnAllPluginsLoaded();
     ConfigOnAllPluginsLoaded();
+	g_zombieplague = LibraryExists("zombieplague");
+	LogMessage("Zombiereloded capabilities:Zombie Plague: %s",
+		(g_zombieplague ? "loaded" : "not loaded"));
 }
 
 /**
@@ -219,6 +234,7 @@ public OnMapStart()
     SEffectsZombieLoad();
     MsSoundEnd();
     OnMapStartSound();
+	OnMapStartZM();
 
     CountDown();
 
@@ -244,6 +260,8 @@ public OnMapEnd()
     VEffectsOnMapEnd();
     ZombieSoundsOnMapEnd();
     ImmunityOnMapEnd();
+	rondanemesis = false;
+    rondasurvivor = false;
 }
 
 /**
@@ -326,6 +344,7 @@ public OnClientPutInServer(client)
     ZTele_OnClientPutInServer(client);
     ZHPClientInit(client);
     ImmunityClientInit(client);
+	OnClientPutInServerD(client);
 }
 
 /**
@@ -380,6 +399,7 @@ public OnClientDisconnect(client)
     VolOnPlayerDisconnect(client);
     ImmunityOnClientDisconnect(client);
     ZTele_OnClientDisconnect(client);
+	OnClientDisconnectZM(client);
 }
 
 /**

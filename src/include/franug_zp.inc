@@ -130,10 +130,11 @@ native ZP_LoadTranslations(const String:langfile[]);
  */
 native ZP_AddGoldenWeapon(client, weapon);
 
+/*
 public SharedPlugin __pl_zombieplague =
 {
-	name = "zombieplague_core",
-	file = "zombieplague_core.smx",
+	name = "core_zombieplague",
+	file = "core_zombieplague.smx",
 	#if defined REQUIRE_PLUGIN
 	required = 1,
 	#else
@@ -145,3 +146,4 @@ public void __pl_zombieplague_SetNTVOptional()
 {
 	MarkNativeAsOptional("ZP_SetSpecial");
 }
+ */

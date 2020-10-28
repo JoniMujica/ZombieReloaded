@@ -18,7 +18,7 @@ if not exist "%BUILDDIR%" (
 :: Compile.
 echo Starting compiler:
 %SPCOMP% -i%SOURCEDIR% -i%SOURCEDIR%/include -i%SMINCLUDES% -o%BUILDDIR%/zombiereloaded.smx %SOURCEDIR%\zombiereloaded.sp
-%SPCOMP% -i%SOURCEDIR% -i%SOURCEDIR%/include -i%SMINCLUDES% -o%BUILDDIR%/zombieplague_core.smx %SOURCEDIR%\zombieplague_core.sp
+%SPCOMP% -i%SOURCEDIR% -i%SOURCEDIR%/include -i%SMINCLUDES% -o%BUILDDIR%/core_zombieplague.smx %SOURCEDIR%\core_zombieplague.sp
 %SPCOMP% -i%SOURCEDIR% -i%SOURCEDIR%/include -i%SMINCLUDES% -o%BUILDDIR%/zp_100hp.smx %SOURCEDIR%\zp_100hp.sp
 %SPCOMP% -i%SOURCEDIR% -i%SOURCEDIR%/include -i%SMINCLUDES% -o%BUILDDIR%/zp_250hp.smx %SOURCEDIR%\zp_250hp.sp
 %SPCOMP% -i%SOURCEDIR% -i%SOURCEDIR%/include -i%SMINCLUDES% -o%BUILDDIR%/zp_antidote.smx %SOURCEDIR%\zp_antidote.sp

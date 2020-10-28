@@ -1,0 +1,14 @@
+"Phrases"
+{
+	"minigunzp"
+	{
+		"en"		"Extra Item Minigun M60"
+		"es"		"Extra Item Minigun M60"
+	}
+	"you bought minigun"
+	{
+		"en"		"You bought Minigun M60"
+		"es"		"Compraste una Minigun M60"
+	}
+
+}

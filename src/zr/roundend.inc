@@ -582,10 +582,12 @@ PlaySoundEnd()
             StopSoundPerm(i, "radio/ctwin.wav");
             StopSoundPerm(i, "radio/terwin.wav");
             if(zombie_wins){ 
-                EmitSoundToAll(SoundNameZM);
+                // EmitSoundToAll(SoundNameZM);
+                EmitSoundToAll(SoundNameZM, _, _, 5, _, 10.0);
             }
             if(human_wins){
-                EmitSoundToAll(SoundNameHM);
+                // EmitSoundToAll(SoundNameHM);
+                EmitSoundToAll(SoundNameHM, _, _, 5, _, 10.0);
             }
         }
 	}

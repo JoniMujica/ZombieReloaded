@@ -1,0 +1,14 @@
+"Phrases"
+{
+	"bombinfect"
+	{
+		"en"		"Infect Naade"
+		"es"		"Bomba de infeccion"
+	}
+	
+	"You bought infect bomb"
+	{
+		"en"		"You bought infect bomb"
+		"es"		"Compraste bomba de infeccion!!"
+	}
+}

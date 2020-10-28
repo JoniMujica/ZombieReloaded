@@ -132,8 +132,8 @@ native ZP_AddGoldenWeapon(client, weapon);
 
 public SharedPlugin __pl_zombieplague =
 {
-	name = "franug_zombieplague",
-	file = "franug_zombieplague.smx",
+	name = "zombieplague_core",
+	file = "zombieplague_core.smx",
 	#if defined REQUIRE_PLUGIN
 	required = 1,
 	#else

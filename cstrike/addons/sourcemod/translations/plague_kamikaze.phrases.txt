@@ -1,0 +1,14 @@
+"Phrases"
+{
+	"kamikaze"
+	{
+		"en"		"Kamikaze Bomb"
+		"es"		"Bomba Kamikaze"
+	}
+	"you bought kamikaze"
+	{
+		"en"		"You bought Kamikaze Bomba, use !detonar for explode!!"
+		"es"		"Compraste Bomba Kamikaze, usa !detonar para explotar!!"
+	}
+
+}

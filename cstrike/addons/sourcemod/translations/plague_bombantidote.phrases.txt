@@ -1,0 +1,14 @@
+"Phrases"
+{
+	"bombantidote"
+	{
+		"en"		"Buy Bomb Antidot"
+		"es"		"Comprar bomba de antidoto"
+	}
+	"you bought Bomb Antidote"
+	{
+		"en"		"You bought Bomb Antidot"
+		"es"		"Compraste bomba de antidoto"
+	}
+
+}

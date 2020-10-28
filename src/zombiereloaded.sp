@@ -51,7 +51,7 @@ new bool:Es_Nemesis[MAXPLAYERS+1] = {false, ...};
 #define VERSION "3.2"
 new bool:human_wins = false;
 new bool:zombie_wins = false;
-new bool:barricada = true;
+new bool:barricada = false;
 new String:g_MapName[128];
 // Comment this line to exclude version info command. Enable this if you have
 // the repository and HG installed (Mercurial or TortoiseHG).

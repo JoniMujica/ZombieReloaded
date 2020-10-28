@@ -1,0 +1,14 @@
+"Phrases"
+{
+	"throwingknives"
+	{
+		"en"		"ThrowingKnives"
+		"es"		"Lanza Cuchillos"
+	}
+	"you bought ThrowingKnives"
+	{
+		"en"		"You bought ThrowingKnives"
+		"es"		"Compraste Lanza Cuchillos, usa el cuchillo para lanzar una faka"
+	}
+
+}

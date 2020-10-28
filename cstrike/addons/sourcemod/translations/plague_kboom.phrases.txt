@@ -1,0 +1,8 @@
+"Phrases"
+{
+	"knifebomb"
+	{
+		"en"		"Knife Bomb"
+		"es"		"Cuchi Bomba"
+	}
+}

@@ -501,7 +501,7 @@ Ronda_Plague()
 			}
 		}
 	}    
-	PrintToChatAll("\x04[SM_Franug-ZombiePlague] \x05%t","RONDA Plague!");
+	PrintToChatAll("\x04[InternacionalZP] \x05%RONDA Plague!");
 	// Mother zombies have been infected.    
 	g_bZombieSpawned = true;
 	// If infect timer is running, then kill it.    
@@ -583,7 +583,7 @@ public Action:Ronda_PlagueA(client, args)
 			}
 		}
 	}    
-	PrintToChatAll("\x04[SM_Franug-ZombiePlague] \x05%t","RONDA Plague!");
+	PrintToChatAll("\x04[InternacionalZP] RONDA Plague!");
 	// Mother zombies have been infected.    
 	g_bZombieSpawned = true;
 	// If infect timer is running, then kill it.    
@@ -613,7 +613,7 @@ Ronda_Survivor()
 			jugadores++;
 		}
 	}   
-	PrintToChatAll("\x04[SM_Franug-ZombiePlague] \x05%t","RONDA SURVIVOR!");
+	PrintToChatAll("\x04[InternacionalZP] \x05RONDA SURVIVOR!");
 	new vida_survivor = jugadores * 100;
 	SetEntityHealth(Survivor, vida_survivor);
 	CS_SwitchTeam(Survivor, CS_TEAM_CT);
@@ -706,7 +706,7 @@ Ronda_Nemesis()
 			jugadores++;
 		}
 	}
-	PrintToChatAll("\x04[SM_Franug-ZombiePlague] \x05%t","RONDA NEMESIS!");
+	PrintToChatAll("\x04[InternacionalZP] \x05RONDA NEMESIS!");
 	new vida_nemesis = (jugadores * 1000);
 	SetEntityHealth(Nemesis, vida_nemesis);
 	
@@ -776,7 +776,7 @@ public Action:NemesisA(client, args)
 	new target;
 	if((target = FindTarget(client, arg)) == -1)
 	{
-		PrintToChat(client, "\x04[SM_Franug-ZombiePlague] \x05Objetivo no encontrado");
+		PrintToChat(client, "\x04[InternacionalZP] Objetivo no encontrado");
 		return Plugin_Handled; // Target not found...
 	}
 	Nemesis = target;
@@ -793,7 +793,7 @@ public Action:NemesisA(client, args)
 			jugadores++;
 		}
 	}
-	PrintToChatAll("\x04[SM_Franug-ZombiePlague] \x05%t","RONDA NEMESIS!");
+	PrintToChatAll("\x04[InternacionalZP] \x05RONDA NEMESIS!");
 	new vida_nemesis = (jugadores * 1000);
 	SetEntityHealth(Nemesis, vida_nemesis);
 	CS_SwitchTeam(Nemesis, CS_TEAM_T);
@@ -863,7 +863,7 @@ public Action:SurvivorA(client, args)
 	new target;
 	if((target = FindTarget(client, arg)) == -1)
 	{
-		PrintToChat(client, "\x04[SM_Franug-ZombiePlague] \x05Objetivo no encontrado");
+		PrintToChat(client, "\x04[InternacionalZP] Objetivo no encontrado");
 		return Plugin_Handled; // Target not found...
 	}
 	Survivor = target;
@@ -879,7 +879,7 @@ public Action:SurvivorA(client, args)
 			jugadores++;
 		}
 	}   
-	PrintToChatAll("\x04[SM_Franug-ZombiePlague] \x05%t","RONDA SURVIVOR!");
+	PrintToChatAll("\x04[InternacionalZP] RONDA SURVIVOR!");
 	new vida_survivor = jugadores * 100;
 	SetEntityHealth(Survivor, vida_survivor);
 	CS_SwitchTeam(Survivor, CS_TEAM_CT);

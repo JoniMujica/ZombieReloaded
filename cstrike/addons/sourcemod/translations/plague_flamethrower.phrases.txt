@@ -1,0 +1,14 @@
+"Phrases"
+{
+	"flamethrower"
+	{
+		"en"		"Buy Bomb flamethrower"
+		"es"		"Lanza llamas"
+	}
+	"you bought FlameThrower"
+	{
+		"en"		"You bought FlameThrower"
+		"es"		"Compraste Lanza Llamas, usa el cuchillo para lanzar fuego"
+	}
+
+}

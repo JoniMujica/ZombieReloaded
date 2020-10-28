@@ -774,6 +774,11 @@
 	{
 		"en"		"ZMarket\nSelect Weapon Loadout:"
 	}
+	
+	"Weapons menu zmarket loadout empty"
+	{
+		"en"		"(None)"
+	}
 
 	"Weapons menu zmarket types title"
 	{

@@ -42,9 +42,9 @@ FreezeEndSound()
 	decl String:SoundName[150]; GetArrayString(sound_array, CurrPos, SoundName, 150);
 	for (new i = 1; i <= MaxClients; i++)
 	{
-		if (barricada && IsClientInGame(i) && !IsFakeClient(i))
+		if(barricada)
 		{
-			EmitSoundToClient(i, SoundName);
+			EmitSoundToAll(SoundName, _, _, 5, _, 10.0);
 		}
 	}
 }

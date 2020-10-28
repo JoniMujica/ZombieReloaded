@@ -1,0 +1,40 @@
+"Phrases"
+{
+	"RONDA Plague!"
+	{
+	"en"		"Plague Round!"
+	"es"		"RONDA Plague!"
+	}
+	"RONDA SURVIVOR!"
+	{
+	"en"		"SURVIVOR Round!"
+	"es"		"RONDA SURVIVOR!"
+	}
+	"RONDA NEMESIS!"
+	{
+	"en"		"NEMESIS Round!"
+	"es"		"RONDA NEMESIS!"
+	}
+	"Vida del NEMESIS"
+	{
+	"#format"	"{1:i}"
+	"en"		"NEMESIS health: {1}"
+	"es"		"Vida del NEMESIS: {1}"
+	}
+	"Vida del SURVIVOR"
+	{
+	"#format"	"{1:i}"
+	"en"		"SURVIVOR health: {1}"
+	"es"		"Vida del SURVIVOR: {1}"
+	}
+	"El jugador NEMESIS se ha desconectado"
+	{
+	"en"		"The player NEMESIS is disconnected"
+	"es"		"El jugador NEMESIS se ha desconectado"
+	}
+	"El jugador SURVIVOR se ha desconectado"
+	{
+	"en"		"The player SURVIVOR is disconnected"
+	"es"		"El jugador SURVIVOR se ha desconectado"
+	}
+}
